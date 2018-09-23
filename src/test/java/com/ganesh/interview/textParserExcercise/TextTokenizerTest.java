@@ -1,5 +1,9 @@
 package com.ganesh.interview.textParserExcercise;
 
+import java.util.List;
+
+import com.ganesh.interview.textToken.TextToken;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -7,15 +11,17 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
+public class TextTokenizerTest 
     extends TestCase
 {
-    /**
+	static List<TextToken> list;
+	
+	/**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public TextTokenizerTest( String testName )
     {
         super( testName );
     }
@@ -25,7 +31,7 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( TextTokenizerTest.class );
     }
 
     /**
@@ -33,6 +39,12 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+     	String input="Hello $$ H////ow! a:re? you1 123?";
+        TextTokenizer tokenizer=new TextTokenizer();
+        list=tokenizer.getAllTokens(input);
+        
+        
+        //Hello H ow a re you1 123
+        assertEquals(7, list.size());
     }
 }
