@@ -3,6 +3,7 @@ package com.ganesh.interview.textToken;
 import java.util.Arrays;
 
 import com.ganesh.interview.tokenType.TokenType;
+import com.ganesh.interview.tokenUtility.TokenUtility;
 
 public final class TextToken implements CharSequence {
 
@@ -16,7 +17,8 @@ public final class TextToken implements CharSequence {
 	 private final int[] relativeIndex;
 	
 	 public TextToken(char value[],int firstIndex,int lastIndex) { 
-		
+		 if(value==null || !TokenUtility.isValidCS(String.valueOf(value))) 
+				throw new RuntimeException("Invalid Token");
 		
 		this.length = value.length;
 		this.value = Arrays.copyOf(value, this.length);
