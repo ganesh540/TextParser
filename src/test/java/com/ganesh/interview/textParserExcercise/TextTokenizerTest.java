@@ -3,6 +3,7 @@ package com.ganesh.interview.textParserExcercise;
 import java.util.List;
 
 import com.ganesh.interview.textToken.TextToken;
+import com.ganesh.interview.tokenType.TokenType;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -39,12 +40,13 @@ public class TextTokenizerTest
      */
     public void testApp()
     {
-     	String input="Hello $$ H////ow! a:re? you1 123?";
+     	String input="Hello $$ H////ow! a:re? you1 123? 123abc";
         TextTokenizer tokenizer=new TextTokenizer();
         list=tokenizer.getAllTokens(input);
         
         
         //Hello H ow a re you1 123
-        assertEquals(7, list.size());
+        assertEquals(8, list.size());
+        assertEquals(list.get(0).getTokenType(),TokenType.ALPHABETIC_TOKEN);
     }
 }

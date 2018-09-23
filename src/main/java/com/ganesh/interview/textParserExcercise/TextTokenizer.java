@@ -19,7 +19,7 @@ public class TextTokenizer implements ITextTokenizer {
 		int start=0;
 		
 		for(int i=0;i<cs.length();i++) {
-			if(!TokenUtility.isAlfhaNumeric(cs.charAt(i))) {
+			if(!TokenUtility.isAlfhaNumeric(cs.charAt(i)) || i==cs.length()-1) {
 				if(cs.subSequence(start, i).length()>0)
 				addTokenToList(tokenList, start,i-1, cs.subSequence(start, i));
 				start= i+1;

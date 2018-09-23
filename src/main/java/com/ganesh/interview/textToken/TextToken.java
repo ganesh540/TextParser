@@ -2,6 +2,8 @@ package com.ganesh.interview.textToken;
 
 import java.util.Arrays;
 
+import com.ganesh.interview.tokenType.TokenType;
+
 public final class TextToken implements CharSequence {
 
 	 /** The value is used for character storage. */
@@ -78,16 +80,15 @@ public final class TextToken implements CharSequence {
 	}
 	
 	
-	// 0-numeric 1-alphabets 2-both
-	//TODO return enum instead of 0,1,2
-	public int getTokenType() {
+	// returns type of token
+	public TokenType getTokenType() {
 		String s=toString();
-		//
-		if(s.matches("[a-zA-Z]+")) return 0;
+
+		if(s.matches("[a-zA-Z]+")) return TokenType.ALPHABETIC_TOKEN;
 		
-		if(s.matches("[0-9]+")) return 1;
+		if(s.matches("[0-9]+")) return TokenType.NUMERIC_TOKEN;
 		
-		return 2;
+		return TokenType.ALPHANUMERIC_TOKEN;
 	}
 	
 	
