@@ -27,12 +27,13 @@ public final class TextToken implements CharSequence {
 		this.relativeIndex[1]=lastIndex;
 	 }
 	 
-	 
+	 /** Returns the length of the token*/
 	 @Override
 	 public int length() {
 		return length;
 	}
 
+	 /** Returns the character of the token at given index*/
 	@Override
 	public char charAt(int index) {
 		if ((index < 0) || (index >= length)) {
@@ -41,6 +42,8 @@ public final class TextToken implements CharSequence {
 		return value[index];
 	}
 
+	
+	/** Returns a new token that is a subsequence of this token*/
 	@Override
 	public CharSequence subSequence(int start, int end) {
 		if (start < 0) {
@@ -56,7 +59,7 @@ public final class TextToken implements CharSequence {
 	}
 	
 	
-	// Hello 2 3 ll
+	// Returns new texttoken 
 	private CharSequence subSequence(char[] value,int start,int end) {
 		char[] subCharArray=new char[end-start+1];
 		for(int i=start,index=0;i<=end;i++) {
@@ -66,7 +69,7 @@ public final class TextToken implements CharSequence {
 	}
 	
 	
-	/* returns String value of the token*/
+	/** Returns String value of the token*/
 	public String toString() {
 		StringBuffer sb=new StringBuffer();
 		for(char c:value) {
@@ -76,13 +79,13 @@ public final class TextToken implements CharSequence {
 	}
 	
 	
-	//returns first and last index
+	/** Returns first and last index*/
 	public int[] getRelativeIndex() {
 		return relativeIndex;
 	}
 	
 	
-	// returns type of token
+	/** Returns type of token */
 	public TokenType getTokenType() {
 		String s=toString();
 
