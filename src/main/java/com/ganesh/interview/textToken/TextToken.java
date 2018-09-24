@@ -71,11 +71,7 @@ public final class TextToken implements CharSequence {
 	
 	/** Returns String value of the token*/
 	public String toString() {
-		StringBuffer sb=new StringBuffer();
-		for(char c:value) {
-			sb.append(c);
-		}
-		return sb.toString();
+		return new String(value);
 	}
 	
 	
