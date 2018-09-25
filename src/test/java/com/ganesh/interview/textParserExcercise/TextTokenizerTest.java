@@ -61,7 +61,7 @@ public class TextTokenizerTest extends TestCase {
 
 	public void testNoTokenString() {
 		String input = "$$$$ **** )))(((";
-		assertNull(new TextTokenizer().getAllTokens(input));
+		assertEquals(0,new TextTokenizer().getAllTokens(input).size());
 	}
 
 	public void testnullString() {
@@ -113,7 +113,7 @@ public class TextTokenizerTest extends TestCase {
 	}
 
 	public void testSpecialString() {
-		assertNull(new TextTokenizer().getAllTokens("/// //"));
+		assertEquals(0,new TextTokenizer().getAllTokens("/// //").size());
 	}
 
 	// Bonus testcase
