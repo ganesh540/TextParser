@@ -17,7 +17,7 @@ public final class TextToken implements CharSequence {
 	 private final int[] relativeIndex;
 	
 	 public TextToken(char value[],int firstIndex,int lastIndex) { 
-		 if(value==null || !TokenUtility.isValidCS(String.valueOf(value))) 
+		 if(value==null || (!TokenUtility.isValidCS(String.valueOf(value)) && String.valueOf(value).replaceAll("[^a-zA-Z0-9]+", "").trim().length()>0) ) 
 				throw new RuntimeException("Invalid Token");
 		
 		this.length = value.length;

@@ -30,8 +30,10 @@ public class TextTokenizer implements ITextTokenizer {
 
 		logger.log(Level.INFO, "Inside GetAllTokens");
 
-		if (!TokenUtility.isValidCS(cs))
+		if (!TokenUtility.isValidCS(cs)) {
+			logger.log(Level.INFO, "Exiting GetAllTokens, No tokens generated");
 			return null;
+		}
 
 		List<TextToken> tokenList = new ArrayList<>();
 
